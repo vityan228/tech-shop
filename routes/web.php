@@ -11,6 +11,7 @@ Auth::routes([
     'verify'=>false,
 ]);
 
+
 Route::get('/logout','Auth\LoginController@logout')->name('get-logout');
 Route::group([
     'middleware'=> 'auth',
