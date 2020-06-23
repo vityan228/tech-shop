@@ -16,6 +16,7 @@ Route::get('/logout','Auth\LoginController@logout')->name('get-logout');
 Route::group([
     'middleware'=> 'auth',
     'namespace'=> 'Admin',
+    'prefix'=> 'admin',
 ],
     function (){
     Route::group([
@@ -23,13 +24,16 @@ Route::group([
         function (){
         Route::get('/orders', 'OrderController@index')->name('home');
     });
+
+    Route::resource('categories','CategoryController');
+    Route::resource('products','ProductController');
 });
 
 
 
 Route::group([
     'middleware'=> 'basket_not_empty',
-    'prefix'=> 'baske',
+    'prefix'=> 'basket',
 ],function (){
     Route::get('/','BasketController@basket')->name('basket');
     Route::get('/place','BasketController@basketPlace')->name('basket-place');

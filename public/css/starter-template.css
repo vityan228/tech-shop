@@ -7,6 +7,10 @@ body {
     text-align: center;
 }
 
+select.my_select{
+    height: 20px;
+}
+
 table {
     text-align: left;
 }
